@@ -1,4 +1,5 @@
 -- LSP Plugins
+-- This is copied almost directly from kickstart nvim
 return {
 	{
 		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
