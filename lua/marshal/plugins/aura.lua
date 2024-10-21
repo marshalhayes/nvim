@@ -14,10 +14,10 @@ return {
 			vim.o.background = "dark"
 
 			-- Tell vim to use a transparent background
-			vim.cmd([[highlight Normal guibg=NONE ctermbg=NONE]])
+			-- vim.cmd([[highlight Normal guibg=NONE ctermbg=NONE]])
 
 			-- Tell vim to use a transparent background on float windows
-			vim.cmd([[highlight NormalFloat guibg=NONE ctermbg=NONE]])
+			-- vim.cmd([[highlight NormalFloat guibg=NONE ctermbg=NONE]])
 		end,
 	},
 }
