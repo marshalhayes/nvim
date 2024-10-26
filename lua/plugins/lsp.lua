@@ -41,6 +41,10 @@ return {
 
 				-- Used for formatting lua code
 				stylua = {},
+
+				-- Angular and TypeScript
+				ts_ls = {},
+				angularls = {},
 			}
 
 			-- Install the servers automatically
