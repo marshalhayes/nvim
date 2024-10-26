@@ -13,18 +13,6 @@ return {
 
 	{ "Bilal2453/luvit-meta", lazy = true },
 
-	-- Markview
-	{
-		"OXY2DEV/markview.nvim",
-		lazy = false, -- Recommended
-		-- ft = "markdown" -- If you decide to lazy-load anyway
-
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
-
 	-- Main LSP Configuration
 	{
 		"neovim/nvim-lspconfig",
@@ -44,23 +32,34 @@ return {
 		config = function()
 			require("mason").setup()
 
+			local servers = {
+				-- Lua LSP
+				lua_ls = {},
+
+				-- Markdown LSP
+				marksman = {},
+
+				-- Used for formatting lua code
+				stylua = {},
+			}
+
+			-- Install the servers automatically
 			require("mason-tool-installer").setup({
-				ensure_installed = {
-					-- Lua LSP
-					"lua_ls",
+				ensure_installed = vim.tbl_keys(servers),
 
-					-- LSP for markdown
-					"marksman",
-
-					-- Used to format lua code
-					"stylua",
-				},
+				automatically_install = true,
 			})
+
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
-						require("lspconfig")[server_name].setup({})
+						local server = servers[server_name]
+
+						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+						require("lspconfig")[server_name].setup(server)
 					end,
 				},
 			})
