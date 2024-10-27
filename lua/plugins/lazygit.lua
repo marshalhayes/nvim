@@ -1,4 +1,4 @@
--- nvim v0.8.0
+-- The lazygit plugin opens the lazygit UI within neovim
 return {
 	"kdheepak/lazygit.nvim",
 	lazy = true,

@@ -1,3 +1,4 @@
+-- Sets the colorscheme to my favorite, which is GitHub's Dark Tritanopia theme
 return {
 	"projekt0n/github-nvim-theme",
 	name = "github-theme",

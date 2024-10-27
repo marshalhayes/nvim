@@ -1,4 +1,5 @@
-return { -- Autocompletion
+-- The cmp plugin is used to provide autocompletion
+return {
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
 	dependencies = {

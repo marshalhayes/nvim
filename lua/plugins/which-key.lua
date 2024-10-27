@@ -1,3 +1,4 @@
+-- The which-key plugin is a plugin that shows keymaps in a popup window
 return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",

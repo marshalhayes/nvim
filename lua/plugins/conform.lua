@@ -1,3 +1,4 @@
+-- Conform is used to format code
 return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },

@@ -1,3 +1,4 @@
+-- The telescope plugin is a plugin that provides a modern interface for finding files, grepping, and more
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",

@@ -1,3 +1,4 @@
+-- The treesitter plugin is a plugin that provides syntax highlighting and indentation for a virtually all modern languages
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",

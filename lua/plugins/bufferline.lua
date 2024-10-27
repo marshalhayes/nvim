@@ -1,3 +1,4 @@
+-- The bufferline plugin is used to display the list of buffers as tabs at the top of the window
 return {
 	"akinsho/bufferline.nvim",
 	version = "v4.*",

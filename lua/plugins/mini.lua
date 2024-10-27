@@ -1,3 +1,4 @@
+-- The mini plugin provides a minimal statusline for neovim
 return {
 	"echasnovski/mini.nvim",
 	config = function()

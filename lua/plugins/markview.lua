@@ -1,3 +1,4 @@
+-- The markview plugin shows a live preview of markdown files when in normal mode
 return {
 	"OXY2DEV/markview.nvim",
 	lazy = false, -- Recommended
