@@ -24,7 +24,7 @@ return {
 	init = function()
 		vim.api.nvim_set_keymap(
 			"n",
-			"<C-t>",
+			"<leader><leader>",
 			":BufferLinePick<CR>",
 			{ noremap = true, silent = true, desc = "Change tabs" }
 		)
