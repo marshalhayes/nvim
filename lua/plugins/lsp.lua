@@ -43,6 +43,9 @@ return {
 					-- Go to definition
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 
+					-- Go to references
+					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+
 					-- Go to type definition
 					map("gD", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 
