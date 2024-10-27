@@ -30,6 +30,28 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+
+				callback = function(event)
+					-- Set up keymaps for LSP
+					local map = function(keys, func, desc, mode)
+						mode = mode or "n"
+						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+					end
+
+					-- Go to definition
+					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+
+					-- Go to type definition
+					map("gD", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+
+					-- Rename variable
+					-- I'm using ctrl + r twice because I'm used to it from IntelliJ w/ Visual Studio keymaps
+					map("<C-r><C-r>", vim.lsp.buf.rename, "[R]e[n]ame Variable")
+				end,
+			})
+
 			require("mason").setup()
 
 			local servers = {
