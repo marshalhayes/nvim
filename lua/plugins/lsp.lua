@@ -53,6 +53,9 @@ return {
 					-- Rename variable
 					-- I'm using ctrl + r twice because I'm used to it from IntelliJ w/ Visual Studio keymaps
 					map("<C-r><C-r>", vim.lsp.buf.rename, "[R]e[n]ame Variable")
+
+					-- Execute a code action
+					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 				end,
 			})
 
