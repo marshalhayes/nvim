@@ -74,6 +74,14 @@ return {
 				-- Angular and TypeScript
 				ts_ls = {},
 				angularls = {},
+
+				-- Java
+				jdtls = {
+					cmd = {
+						"jdtls",
+						"--jvm-arg=" .. string.format("-javaagent:%s", vim.fn.expand("$MASON/share/jdtls/lombok.jar")),
+					},
+				},
 			}
 
 			-- Install the servers automatically
