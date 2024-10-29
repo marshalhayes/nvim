@@ -80,6 +80,29 @@ return {
 						"jdtls",
 						"--jvm-arg=" .. string.format("-javaagent:%s", vim.fn.expand("$MASON/share/jdtls/lombok.jar")),
 					},
+
+					settings = {
+						java = {
+							-- Format the code automatically
+							format = {
+								enabled = true,
+							},
+
+							-- Organize imports on save
+							saveActions = {
+								organizeImports = true,
+							},
+
+							-- Download sources
+							maven = {
+								downloadSources = true,
+							},
+
+							eclipse = {
+								downloadSources = true,
+							},
+						},
+					},
 				},
 			}
 
