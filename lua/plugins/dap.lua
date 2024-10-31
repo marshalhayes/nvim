@@ -21,6 +21,9 @@ return {
 		vim.keymap.set("n", "<F11>", dap.step_into, { desc = "DAP: Step into" })
 		vim.keymap.set("n", "<S-F11>", dap.step_out, { desc = "DAP: Step out" })
 
+		-- Open DAP repl
+		vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "DAP: Toggle [D]AP [r]epl" })
+
 		local dapui = require("dapui")
 
 		-- Setup virtual text
