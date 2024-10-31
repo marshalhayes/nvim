@@ -15,5 +15,10 @@ return {
 			ensure_installed = { "jdtls" },
 			automatic_installation = true,
 		})
+
+		local jdtls = require("jdtls")
+
+		vim.keymap.set("n", "<leader>tc", jdtls.test_class, { desc = "DAP: [T]est [c]lass" })
+		vim.keymap.set("n", "<leader>tm", jdtls.test_nearest_method, { desc = "DAP: [T]est [m]ethod" })
 	end,
 }
