@@ -73,37 +73,6 @@ return {
 				-- Angular and TypeScript
 				ts_ls = {},
 				angularls = {},
-
-				-- Java
-				jdtls = {
-					cmd = {
-						"jdtls",
-						"--jvm-arg=" .. string.format("-javaagent:%s", vim.fn.expand("$MASON/share/jdtls/lombok.jar")),
-					},
-
-					settings = {
-						java = {
-							-- Format the code automatically
-							format = {
-								enabled = true,
-							},
-
-							-- Organize imports on save
-							saveActions = {
-								organizeImports = true,
-							},
-
-							-- Download sources
-							maven = {
-								downloadSources = true,
-							},
-
-							eclipse = {
-								downloadSources = true,
-							},
-						},
-					},
-				},
 			}
 
 			-- Install the servers automatically
@@ -119,7 +88,12 @@ return {
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
-						local server = servers[server_name]
+						-- JDTLS is setup in ftplugin/java.lua, so we're ignoring it here
+						if server_name == "jdtls" then
+							return
+						end
+
+						local server = servers[server_name] or {}
 
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
