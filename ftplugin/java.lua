@@ -2,15 +2,15 @@ local jdtls = require("jdtls")
 local root_markers = { "gradlew", "mvnw", ".git" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
 
+local bundle_root = vim.fn.stdpath("data")
+
 local bundles = {
 	-- Load the java-debug extension
-	-- TODO: Replace this with a persistent location
-	"/tmp/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.0.jar",
+	bundle_root .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.52.0.jar",
 }
 
 -- Load the vscode-java-test extension
--- TODO: Replace this with a persistent location
-vim.list_extend(bundles, vim.split(vim.fn.glob("/tmp/vscode-java-test/server/*.jar"), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(bundle_root .. "/vscode-java-test/server/*.jar"), "\n"))
 
 local config = {
 	cmd = {
