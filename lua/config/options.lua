@@ -5,6 +5,9 @@ vim.g.maplocalleader = " "
 -- Use undo files
 vim.opt.undofile = true
 
+-- Use the system clipboard
+vim.opt.clipboard = "unnamedplus"
+
 -- Use spaces instead of tabs
 vim.opt.expandtab = true
 
