@@ -28,6 +28,8 @@ return {
 			}))
 		end, { desc = "[/] Find in current buffer" })
 
+		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
 		vim.keymap.set("n", "<leader>fn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[F]ind [n]vim files" })
